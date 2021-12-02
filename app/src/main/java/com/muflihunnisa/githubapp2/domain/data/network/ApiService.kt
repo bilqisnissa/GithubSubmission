@@ -2,6 +2,7 @@ package com.muflihunnisa.githubapp2.domain.data.network
 
 import com.muflihunnisa.githubapp2.BuildConfig
 import com.muflihunnisa.githubapp2.domain.data.model.DetailUserResponse
+import com.muflihunnisa.githubapp2.domain.data.model.ItemsItem
 import com.muflihunnisa.githubapp2.domain.data.model.UserResponse
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -20,4 +21,12 @@ interface ApiService {
     @GET("users/{username}")
     @Headers("Authorization: token ${BuildConfig.KEY}")
     suspend fun getDetailUser(@Path("username")username: String) : DetailUserResponse
+
+    @GET("users/{username}/followers")
+    @Headers("Authorization: token ${BuildConfig.KEY}")
+    suspend fun getFollowers(@Path("username")username: String) : List<ItemsItem>
+
+    @GET("users/{username}/following")
+    @Headers("Authorization: token ${BuildConfig.KEY}")
+    suspend fun getFollowing(@Path("username")username: String) : List<ItemsItem>
 }

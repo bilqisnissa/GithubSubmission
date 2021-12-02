@@ -1,8 +1,9 @@
-package com.muflihunnisa.githubapp2.view.detail
+package com.muflihunnisa.githubapp2.view.detail.dashboard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -72,5 +73,10 @@ class DetailActivity : AppCompatActivity() {
 
     companion object{
         const val EXTRA_DATA = "extra_data"
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.txt_followers,
+            R.string.txt_following
+        )
     }
 }

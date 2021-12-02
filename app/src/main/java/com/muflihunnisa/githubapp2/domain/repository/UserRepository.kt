@@ -9,7 +9,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import okhttp3.Dispatcher
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -45,5 +44,25 @@ class UserRepository @Inject constructor(private val apiService: ApiService) {
                 Log.d("DEBUG", e.toString())
             }
         }.flowOn(Dispatchers.IO)
+    }
+    suspend fun getFollowers(username : String): Flow<ApiResult<List<ItemsItem?>?>>{
+        return flow {
+            try {
+                val data = apiService.getFollowers(username)
+                emit(ApiResult.Success(data))
+            }catch (e: Throwable){
+                emit(ApiResult.Error(e))
+            }
+        }
+    }
+    suspend fun getFollowing(username: String): Flow<ApiResult<List<ItemsItem?>?>>{
+        return flow {
+            try {
+                val data = apiService.getFollowing(username)
+                emit(ApiResult.Success(data))
+            }catch (e: Throwable){
+                emit(ApiResult.Error(e))
+            }
+        }
     }
 }

@@ -9,10 +9,9 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.muflihunnisa.githubapp2.R
 import com.muflihunnisa.githubapp2.databinding.ActivityMainBinding
 import com.muflihunnisa.githubapp2.domain.data.model.ItemsItem
-import com.muflihunnisa.githubapp2.view.detail.DetailActivity
+import com.muflihunnisa.githubapp2.view.detail.dashboard.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
